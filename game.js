@@ -26,3 +26,11 @@ square.position.y = 30;
 
 star.position.x = 370;
 star.position.y = 0;
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  renderer.render(stage);
+}
+
+animate();
