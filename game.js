@@ -26,20 +26,20 @@ bill.position.y = 200;
 stage.addChild(star);
 //star.anchor.x = 0.5;
 //star.anchor.y = 0.5;
-star.position.x = -150;
-star.position.y = -50;
+star.position.x = 295;
+star.position.y = 295;
 
 stage.addChild(circle);
 //circle.anchor.x = 0.5;
 //circle.anchor.y = 0.5;
-circle.position.x = 80;
-circle.position.y = 150;
+circle.position.x = 45;
+circle.position.y = 270;
 
 stage.addChild(square);
 //square.anchor.x = 0.5;
 //square.anchor.y = 0.5;
-square.position.x = 100;
-square.position.y = 100;
+square.position.x = 180;
+square.position.y = 90;
 
 function keydownEventHandler(e)
 {
@@ -81,7 +81,25 @@ function animate()
     square.position.x = Math.floor(Math.random() * 300) + 50;
     square.position.y = Math.floor(Math.random() * 300) + 50;
 
-    document.getElementById("squarepos").innerHTML += "\nSquare position: " + square.position.x + ", " + square.position.y;
+    //document.getElementById("squarepos").innerHTML += "\nSquare position: " + square.position.x + ", " + square.position.y;
+  }
+
+  if (bill.position.x >= star.position.x - buffer &&
+    bill.position.x <= star.position.x + buffer &&
+    bill.position.y >= star.position.y - buffer &&
+    bill.position.y <= star.position.y + buffer)
+  {
+    star.position.x = Math.floor(Math.random() * 300) + 50;
+    star.position.y = Math.floor(Math.random() * 300) + 50;
+  }
+
+  if (bill.position.x >= circle.position.x - buffer &&
+    bill.position.x <= circle.position.x + buffer &&
+    bill.position.y >= circle.position.y - buffer &&
+    bill.position.y <= circle.position.y + buffer)
+  {
+    circle.position.x = Math.floor(Math.random() * 300) + 50;
+    circle.position.y = Math.floor(Math.random() * 300) + 50;
   }
 
   renderer.render(stage);
